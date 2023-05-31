@@ -1,0 +1,13 @@
+# IDE
+.idea
+.vscode
+
+# Packaging
+__pycache__
+
+# Env
+venv
+
+# Test files
+/.cache/
+/.pytest_cache/
