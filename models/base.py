@@ -12,11 +12,11 @@ class BaseModel:
                 cls.__setattr__(instance, attr_name, data[attr_name])
         return instance
 
-    def __eq__(self, other: TModel):
+    def __eq__(self, other: TModel) -> bool:
         return self.id == other.id
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"<{self.__class__.__name__}: {self}>"
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name

@@ -57,9 +57,3 @@ class SpotifyProvider:
         for top_track in top_tracks:
             top_track["album"] = Album.create_model(top_track["album"])
         return [Track.create_model(track_data) for track_data in top_tracks]
-
-
-
-
-
-
