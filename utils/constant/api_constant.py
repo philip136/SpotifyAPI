@@ -8,17 +8,3 @@ class EndPointConstant:
 class HttpStatusCodeConstant:
     OK: int = 200
 
-
-class ArtistNameConstant:
-    DRAKE: str = "Drake"
-    THE_BEATLES: str = "The beatles"
-
-
-class GenreConstant:
-    BRITISH_INVASION: str = "british invasion"
-    RAP: str = "rap"
-
-
-class SongConstant:
-    ONE_DANCE: str = "One Dance"
-    HERE_COMES_THE_SUN: str = "Here Comes The Sun - Remastered 2009"

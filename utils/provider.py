@@ -8,7 +8,7 @@ from typing import List
 from models.artist import Artist
 from models.album import Album
 from models.track import Track
-from utils.constant import HttpStatusCodeConstant, EndPointConstant
+from utils.constant.api_constant import HttpStatusCodeConstant, EndPointConstant
 
 
 class SpotifyProvider:
@@ -46,9 +46,6 @@ class SpotifyProvider:
         assert response.status_code == HttpStatusCodeConstant.OK, "Failed to get artist data"
         artist_list = response.json()["artists"]["items"]
         return [Artist.create_model(artist_data) for artist_data in artist_list]
-
-    def find_certain_artist(self, artist_name: str):
-        return next(filter(lambda artist: artist.name == artist_name, self.find_artists_by_name(artist_name)))
 
     def find_top_tracks_by_artist(self, artist: Artist) -> List[Track]:
         query_data = urlencode({"market": random.choice(self.find_available_markets())})
