@@ -10,17 +10,16 @@ class NavigationForm(BaseForm):
 
     def __init__(self):
         super(NavigationForm, self).__init__(LocatorConstant.ROOT_LOCATOR, ElementNameConstant.ROOT_NAME)
-        self.element_factory = self._get_element_factory()
 
     def go_to_singer_form(self, singer_name: str) -> SingerForm:
-        self.element_factory.get_button(self.__search_btn_locator, ElementNameConstant.SEARCH_BTN).click()
-        self.element_factory.get_text_box(LocatorConstant.SONG_TEXT_BOX_LOCATOR, ElementNameConstant.SONG_TEXT_BOX).\
+        self._element_factory.get_button(self.__search_btn_locator, ElementNameConstant.SEARCH_BTN).click()
+        self._element_factory.get_text_box(LocatorConstant.SONG_TEXT_BOX_LOCATOR, ElementNameConstant.SONG_TEXT_BOX).\
             type(singer_name)
-        self.element_factory.get_button(LocatorConstant.SINGER_BTN_LOCATOR, ElementNameConstant.SINGER_BTN).click()
+        self._element_factory.get_button(LocatorConstant.SINGER_BTN_LOCATOR, ElementNameConstant.SINGER_BTN).click()
         return SingerForm(artist_name=singer_name)
 
     def go_to_recent_searches(self):
-        self.element_factory.get_button(self.__search_btn_locator, ElementNameConstant.SEARCH_BTN).click()
-        return self.element_factory.get_combo_box(LocatorConstant.RECENT_SEARCH_SINGER,
-                                                  ElementNameConstant.RECENT_SINGERS)
+        self._element_factory.get_button(self.__search_btn_locator, ElementNameConstant.SEARCH_BTN).click()
+        return self._element_factory.get_combo_box(LocatorConstant.RECENT_SEARCH_SINGER,
+                                                   ElementNameConstant.RECENT_SINGERS)
 
